@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resource-monitor
+  template:
+    metadata:
+      labels:
+        app: resource-monitor
+    spec:
+      containers:
+      - name: resource-monitor
+        image: bmajumder/resource-monitor:latest
+        ports:
+        - containerPort: 5050
